@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
         die("Ha fallado");
     }
 
-    $_SESSION["message"] = "Task delete succesfully";
+    $_SESSION["message"] = "Cuenta de hosting borrada";
     $_SESSION["message_type"] = "danger";
 
     header("Location: index.php");
