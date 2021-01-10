@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "db.php";
 
 if(isset($_GET['id'])){
@@ -42,6 +42,9 @@ if(isset($_POST['update'])){
     $query_upt = "UPDATE task set nombre_empresa=?, nombre_cliente=?, correo=?, dominio=?, plan_pagos=?, valor_pago=?, tipo_plan=?, fecha_inicio=?, fecha_final=?, observaciones=? WHERE id =?";
     $pdo_statement = $connect_db->prepare($query_upt);
     $pdo_statement->execute([ $nombre_empresa_upt, $nombre_cliente_upt, $correo_upt, $dominio_upt, $plan_pagos_upt, $valor_pago_upt, $tipo_plan_upt, $fecha_inicio_upt, $fecha_final_upt, $observaciones_upt, $id_upt ]);
+
+    $_SESSION["message"] = "Cuenta de hosting actualizada";
+    $_SESSION["message_type"] = "success";
 
     header("Location: index.php");
 }

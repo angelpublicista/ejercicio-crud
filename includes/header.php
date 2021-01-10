@@ -15,5 +15,12 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="index.php" class="navbar-brand">Mi logo</a>
+        <ul class="nav">
+            
+            <?php if(isset($_SESSION['user_id']) ): ?>
+                <li class="nav-item"><a href="logout.php" class="nav-link">Cerrar sesión</a></li>
+                <li class="nav-item"><span class="text-light d-block nav-link">Bienvenid@ <?php echo $user['user_name'] ?></span></li>
+            <?php endif; ?>
+        </ul>
     </div>
 </nav>
