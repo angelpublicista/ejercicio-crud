@@ -1,6 +1,6 @@
 <footer class="bg-dark text-light py-3">
     <div class="container text-center">
-        <p class="m-0">Geniorama 2021 | All Rights Reserved</p>
+        <p class="m-0">Geniorama <?php echo date("Y"); ?> | All Rights Reserved</p>
     </div>
 </footer>
 
