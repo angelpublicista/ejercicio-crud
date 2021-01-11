@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="index.php" class="navbar-brand">Mi logo</a>
+        <a href="index.php" class="navbar-brand"><img src="assets/img/logo-geniorama-blanco.png" alt="" class="img-brand"> | Agency</a>
         <ul class="nav">
             
             <?php if(isset($_SESSION['user_id']) ): ?>

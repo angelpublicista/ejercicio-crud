@@ -1,6 +1,23 @@
 <?php
 session_start();
+
 include "db.php";
+
+if(isset($_SESSION['user_id'])){
+    $records = $connect_db->prepare("SELECT id, user_email, user_name, user_last_name, user_pass FROM gn_users WHERE id= :id");
+    $records->bindParam(":id", $_SESSION['user_id']);
+    $records->execute();
+
+    $res = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if(count($res) > 0){
+        $user = $res;
+    }
+}
+
+
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];

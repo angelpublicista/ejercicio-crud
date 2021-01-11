@@ -14,6 +14,8 @@ if(isset($_POST['save_task'])){
     $fecha_final = $_POST['fecha_final'];
     $observaciones = $_POST['observaciones'];
 
+    $mi_data = "nombre_empresa, nombre_cliente, correo, dominio, plan_pagos, valor_pago, tipo_plan, fecha_inicio, fecha_final, observaciones";
+
     $query = "INSERT INTO task(nombre_empresa, nombre_cliente, correo, dominio, plan_pagos, valor_pago, tipo_plan, fecha_inicio, fecha_final, observaciones) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $sentence = $connect_db->prepare($query);
     $sentence->execute([$nombre_empresa, $nombre_cliente, $correo, $dominio, $plan_pagos, $valor_pago, $tipo_plan, $fecha_inicio, $fecha_final, $observaciones ]);

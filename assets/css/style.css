@@ -21,4 +21,9 @@ label {
   color: #757575;
 }
 
+.img-brand {
+  width: 100%;
+  max-width: 100px;
+}
+
 /*# sourceMappingURL=style.css.map */
