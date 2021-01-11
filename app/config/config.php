@@ -4,10 +4,11 @@
 define("ROUTE_APP", dirname(dirname(__FILE__)));
 
 // Ruta URL
-define("ROUTE_URL", "_URL_");
+define("ROUTE_URL", "http://localhost/host_geniorama");
 
 define("SITE_NAME", "_NOMBRE_SITIO");
 
+// Credenciales Base de datos
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
