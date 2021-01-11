@@ -4,9 +4,9 @@
 define("ROUTE_APP", dirname(dirname(__FILE__)));
 
 // Ruta URL
-define("ROUTE_URL", "http://localhost/host_geniorama");
+define("ROUTE_URL", "http://localhost/ejercicio-crud");
 
-define("SITE_NAME", "_NOMBRE_SITIO");
+define("SITE_NAME", "Host Services Geniorama");
 
 // Credenciales Base de datos
 define("DB_HOST", "localhost");

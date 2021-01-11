@@ -1,12 +1,14 @@
 <?php require ROUTE_APP . "/view/inc/header.php"; ?>
 
 Prueba de carga
-<br>
+<a href="<?php echo ROUTE_URL ?>/pages/add" class="btn btn-primary">Insertar</a>
 
 <ul>
-    <?php foreach($data['articulos'] as $articulo): ?>
-        <li><?php echo $articulo->nombre_empresa; ?></li>
+    <?php foreach($data['users'] as $user): ?>
+        <li><?php echo $user->email; ?></li>
     <?php endforeach; ?>
 </ul>
+
+<br>
 
 <?php require ROUTE_APP . "/view/inc/footer.php"; ?>

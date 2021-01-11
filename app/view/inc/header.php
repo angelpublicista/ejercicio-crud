@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="index.php" class="navbar-brand"><img src="<?php echo ROUTE_URL; ?>/img/logo-geniorama-blanco.png" alt="" class="img-brand"> | Agency</a>
+        <a href="index.php" class="navbar-brand"><img src="<?php echo ROUTE_URL; ?>/img/logo-geniorama-blanco.png" alt="" class="img-brand"></a>
         <ul class="nav">
             <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
         </ul>

@@ -13,20 +13,18 @@
         protected $parametros = [];
 
         public function __construct(){
-            // print_r($this->getUrl());
             $url = $this->getUrl();
 
             // Buscar controlador si existe
             if(isset($url)){
-                if(file_exists("../app/controller/" . ucwords($url[0]) . ".php")){
+                if(file_exists(ROUTE_APP . "/controller/" . ucwords($url[0]) . ".php")){
                     $this->controladorActual = ucwords($url[0]);
     
                     unset($url[0]);
                 }
             }
-            
 
-            require_once "../app/controller/" . $this->controladorActual . ".php";
+            require_once ROUTE_APP . "/controller/" . $this->controladorActual . ".php";
             $this->controladorActual = new $this->controladorActual;
 
             // Verificar método
@@ -36,8 +34,6 @@
                     unset($url[1]);
                 }
             }
-
-            // echo $this->metodoActual;
 
             // Obtener posibles parametros
             $this->parametros = $url ? array_values($url) : [];
