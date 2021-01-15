@@ -14,7 +14,7 @@ class User{
     }
 
     public function addUser($data){
-        $query = "INSERT INTO gn_user (email, name, last_name, password) VALUES (:email, :name, :last_name, :password)";
+        $query = 'INSERT INTO gn_user(email, name, last_name, password) VALUES (:email, :name, :last_name, :password)';
 
         $this->db->query($query);
 

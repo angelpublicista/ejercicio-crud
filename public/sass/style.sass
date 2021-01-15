@@ -1,9 +1,20 @@
+body
+    font-size: 11pt
+    overflow-x: hidden
 p, h1, h2, h3, h4, h5, h6, td, th, .form-control, .btn, label, a
     font-family: 'Poppins', sans-serif !important
 .plan-pagos
     text-transform: capitalize
 .gn-main
-    min-height: 90vh
+    min-height: 93vh
+    .gn-sidebar-menu
+        min-height: 93vh
+        .nav-item
+            border-bottom: 1px solid rgba(#fff, .2 )
+    .gn-content
+        min-height: 93vh
+        &-title
+            color: #353535
 
 .gn-form-login
     width: 100%
@@ -15,3 +26,7 @@ label
 .img-brand
     width: 100%
     max-width: 100px
+.sort-buttons
+    opacity: .5
+    &:hover
+        opacity: 1

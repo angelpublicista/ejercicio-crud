@@ -48,6 +48,11 @@ class Database {
                 case is_null($value):
                     $type = PDO::PARAM_NULL;
                 break;
+
+                case is_string($value):
+                    $type = PDO::PARAM_STR;
+                break;
+
                 default:
                     $type = PDO::PARAM_NULL;
                 break;

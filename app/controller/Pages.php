@@ -10,37 +10,10 @@ class Pages extends Controller{
         $users = $this->userModel->allUsers();
 
         $data = [
-            "users" => $users
+            "title" => "Inicio"
         ];
         // Cargamos métodos del modelo
         $this->view("pages/home", $data);
-    }
-
-    public function add(){
-        if($_SERVER['REQUEST_METHOD'] == "POST"){
-            $data = [
-                'email' => $_POST['email'],
-                'name'  => trim($_POST['name']),
-                'last_name' => trim($_POST['last_name']),
-                'password' => $_POST['password']
-            ];
-
-            if($this->userModel->addUser($data)){
-                redirectTo('pages');
-            }else {
-                die('Algo salió mal');
-            }   
-        } else {
-           $data = [
-            'email' => '',
-            'name'  => '',
-            'last_name' => '',
-            'password' => ''
-           ];
-
-           $this->view('pages/add', $data);
-        }
-
     }
 
 }
