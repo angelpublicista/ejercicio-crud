@@ -23,11 +23,14 @@ class Users extends Controller{
                 'email' => $_POST['email'],
                 'name'  => trim($_POST['name']),
                 'last_name' => trim($_POST['last_name']),
-                'password' => $_POST['password']
+                'password' => $_POST['password'],
+                'id_role' => intval($_POST['role']),
+                'title' => 'Agregar usuario'
             ];
 
             if($this->userModel->addUser($data)){
-                redirectTo('/pages/users');
+                redirectTo('/users');
+                echo "Exitoso";
             }else {
                 die('Algo salió mal');
             }   
@@ -36,7 +39,9 @@ class Users extends Controller{
             'email' => '',
             'name'  => '',
             'last_name' => '',
-            'password' => ''
+            'password' => '',
+            'id_role' => '',
+            'title' => 'Agregar usuario'
            ];
 
            $this->view('/pages/add', $data);
