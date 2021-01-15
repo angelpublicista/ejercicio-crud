@@ -30,7 +30,6 @@ class Users extends Controller{
 
             if($this->userModel->addUser($data)){
                 redirectTo('/users');
-                echo "Exitoso";
             }else {
                 die('Algo salió mal');
             }   

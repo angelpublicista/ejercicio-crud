@@ -33,6 +33,7 @@
                                     <td>
                                         <a href="<?php echo ROUTE_URL ?>/users/update?id=<?php echo $user->id; ?>" class="btn btn-primary"><i class="far fa-edit"></i></a>
                                         <a href="<?php echo ROUTE_URL ?>/users/sendMail?id=<?php echo $user->id; ?>" class="btn btn-success"><i class="far fa-envelope"></i></a>
+                                        <a href="<?php echo ROUTE_URL ?>/users/automate?id=<?php echo $user->id; ?>" class="btn btn-warning"><i class="fas fa-magic"></i></a>
                                         <a href="<?php echo ROUTE_URL ?>/users/delete?id=<?php echo $user->id; ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>

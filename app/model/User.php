@@ -8,7 +8,7 @@ class User{
     }
 
     public function allUsers(){
-        $this->db->query("SELECT * FROM gn_user INNER JOIN gn_roles ON gn_user.id_role = gn_roles.id");
+        $this->db->query("SELECT * FROM gn_user INNER JOIN gn_roles ON gn_user.id_role = gn_roles.id_role");
 
         return $this->db->registers();
     }
