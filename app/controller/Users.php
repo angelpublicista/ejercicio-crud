@@ -116,8 +116,42 @@ class Users extends Controller{
         }
     }
 
-    public function import(){
+    public function sendMail($id){
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = [
+                "title" => "Enviar email",
+                "user"  => '',
+                "id_user" => $id,
+                'from' => trim($_POST['from']),
+                'to'   => trim($_POST['to']),
+                'message' => filter_var($_POST['message'],FILTER_SANITIZE_STRING),
+                'affair' => filter_var($_POST['affair'],FILTER_SANITIZE_STRING)
+            ];
+
+            if($this->userModel->sendMailUser($data)){
+                redirectTo('/users');
+            } else {
+                die('Algo salió mal');
+            }
+        } else {
+            $user = $this->userModel->userById($id);
+
+            $data = [
+                "title" => "Enviar email",
+                "user"  => $user,
+                "id_user" => $id,
+                'from' => '',
+                'to'   => '',
+                'message' => '',
+                'affair' => ''
+            ];
+
+        }
+
         
+
+        $this->view("pages/sendMail", $data);
     }
 
 }

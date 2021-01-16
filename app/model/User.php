@@ -104,7 +104,19 @@ class User{
 
     }
 
-    public function importUsers(){
-        
+    public function sendMailUser($data){
+        $from = $data['from'];
+        $to = $data['to'];
+        $affair = $data['affair'];
+        $message = $data['message'];
+        $headers = 'From: '.$from.'' . "\r\n" .
+        'Reply-To: '.$from.'' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+        if(mail($to, $affair, $message, $headers)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

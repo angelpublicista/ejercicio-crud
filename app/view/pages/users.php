@@ -32,7 +32,7 @@
                             <?php $count = 0; foreach($data['users'] as $user): $count = $count + 1; ?>
                                 <tr>
                                     <td><?php echo $user->email; ?></td>
-                                    <td><?php echo $user->name; ?></td>
+                                    <td><?php echo $user->name . " " . $user->last_name; ?></td>
                                     <td><?php echo $user->role_name; ?></td>
                                     <td>
                                         <a href="<?php echo ROUTE_URL ?>/users/update/<?php echo $user->id; ?>" class="btn btn-primary"><i class="far fa-edit"></i></a>
