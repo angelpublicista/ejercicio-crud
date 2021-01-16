@@ -37,8 +37,6 @@ class User{
         ];
 
         return $res;
-
-        var_dump($init);
     }
 
     public function userById($id){
@@ -104,5 +102,9 @@ class User{
             return false;
         }
 
+    }
+
+    public function importUsers(){
+        
     }
 }

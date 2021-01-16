@@ -12,7 +12,7 @@
                 <div class="container-fluid">
                     <h1 class="mb-4 gn-content-title"><?php echo $data['title']; ?></h1>
                     
-                    <a href="<?php echo ROUTE_URL; ?>/users" class="link mb-3 d-inline-block">← Regresar</a>
+                    <a href="<?php echo ROUTE_URL; ?>/users/page/1" class="link mb-3 d-inline-block">← Regresar</a>
                     <div class="card card-body bg-light">
                     <form action="<?php echo ROUTE_URL; ?>/users/update/<?php echo $data['id_user']; ?>" method="POST">
                         <div class="row">

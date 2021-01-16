@@ -13,8 +13,11 @@
                     <h1 class="mb-4 gn-content-title"><?php echo $data['title']; ?></h1>
                     
                     <div class="d-flex justify-content-between align-items-center">
-                        <p>Mostrando <b>5</b> de <?php echo $data['rows'] ?> resultados</p>
-                        <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mb-3">+ AGREGAR USUARIO</a>
+                        <p>Mostrando <b><?php echo $data['show_results'] ?></b> de <?php echo $data['rows']; ?> resultados</p>
+                        <div class="buttons-group  mb-3">
+                            <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mr-2">+ Agregar usuario</a>
+                            <a href="#" class="btn btn-success"><i class="fas fa-file-csv mr-1"></i> Importar usuarios</a>
+                        </div>
                     </div>
                     <table class="table table-bordered">
                         <thead class="thead-dark">

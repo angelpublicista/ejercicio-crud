@@ -7,38 +7,39 @@ class Users extends Controller{
     }
 
     public function index(){
-        $users = $this->userModel->allUsers();
-
-        $data = [
-            "users" => $users['user_data'],
-            "title" => "Usuarios",
-            "rows"  => $users['data_count'],
-            "post_per_page" => 3,
-            "pages" => ceil(intval($users['data_count']) / 3),
-            "current_page" => 1
-        ];
-        // Cargamos métodos del modelo
-        $this->view("pages/users", $data);
+        // Redirección a paginación
+        redirectTo('/users/page/1');
     }
 
     public function page($num){
+        if($num < 1){
+            redirectTo('/users/page/1');
+        }
+
         $users = $this->userModel->allUsers();
+        $post_per_page = 5;
 
         $data_query = [
-            "post_per_page" => 3,
+            "post_per_page" => $post_per_page,
             "current_page" => $num
         ];
 
         $users_pagination = $this->userModel->usersPagination($data_query);
+        
 
         $data = [
             "users" => $users_pagination['user_data'],
             "title" => "Usuarios",
             "rows"  => $users['data_count'],
-            "post_per_page" => 3,
-            "pages" => ceil(intval($users['data_count']) / 3),
-            "current_page" => $num
+            "post_per_page" => $post_per_page,
+            "pages" => ceil(intval($users['data_count']) / $post_per_page),
+            "current_page" => $num,
+            "show_results" => $users_pagination['data_count']
         ];
+
+        if($num > $data['pages']){
+            redirectTo('/users/page/1');
+        }
         // Cargamos métodos del modelo
         $this->view("pages/users", $data);
     }
@@ -56,7 +57,7 @@ class Users extends Controller{
             ];
 
             if($this->userModel->addUser($data)){
-                redirectTo('/users');
+                redirectTo('/users/page/1');
             }else {
                 die('Algo salió mal');
             }   
@@ -90,7 +91,7 @@ class Users extends Controller{
             ];
 
             if($this->userModel->updateUser($data)){
-                redirectTo('/users');
+                redirectTo('/users/page/1');
             }else {
                 die('Algo salió mal');
             }
@@ -113,6 +114,10 @@ class Users extends Controller{
         }else {
             die('Algo salió mal');
         }
+    }
+
+    public function import(){
+        
     }
 
 }
