@@ -24,7 +24,9 @@ p, h1, h2, h3, h4, h5, h6, td, th, .form-control, .btn, label, a {
   min-height: 93vh;
 }
 .gn-main .gn-content-title {
-  color: #353535;
+  color: #007BFF;
+  border-left: 3px solid #007BFF;
+  padding-left: 0.5em;
 }
 
 .gn-form-login {

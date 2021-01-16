@@ -12,11 +12,13 @@
                 <div class="container-fluid">
                     <h1 class="mb-4 gn-content-title"><?php echo $data['title']; ?></h1>
                     
-                    <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mb-3">+ AGREGAR USUARIO</a>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p>Mostrando <b>5</b> de <?php echo $data['rows'] ?> resultados</p>
+                        <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mb-3">+ AGREGAR USUARIO</a>
+                    </div>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Pos. <div class="sort-buttons d-inline float-right"><i class="fas fa-long-arrow-alt-down"></i> <i class="fas fa-long-arrow-alt-up"></i></div></th>
                                 <th scope="col">Correo <div class="sort-buttons d-inline float-right"><i class="fas fa-long-arrow-alt-down"></i> <i class="fas fa-long-arrow-alt-up"></i></div></th>
                                 <th scope="col">Nombre <div class="sort-buttons d-inline float-right"><i class="fas fa-long-arrow-alt-down"></i> <i class="fas fa-long-arrow-alt-up"></i></div></th>
                                 <th scope="col">Rol <div class="sort-buttons d-inline float-right"><i class="fas fa-long-arrow-alt-down"></i> <i class="fas fa-long-arrow-alt-up"></i></div></th>
@@ -26,7 +28,6 @@
                         <tbody>
                             <?php $count = 0; foreach($data['users'] as $user): $count = $count + 1; ?>
                                 <tr>
-                                    <th scope="row"><?php echo $count; ?></th>
                                     <td><?php echo $user->email; ?></td>
                                     <td><?php echo $user->name; ?></td>
                                     <td><?php echo $user->role_name; ?></td>
@@ -39,30 +40,33 @@
                                 </tr>
                                 <tr>
                             <?php endforeach; ?>
-
-                            <!-- <tr>
-                            <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>@mdo</td>
-                            </tr> -->
                         </tbody>
                     </table>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            
+                            <li class="page-item <?php if($data["current_page"] < 2): ?>disabled <?php endif; ?>">
+                            <a class="page-link" href="<?php echo $data["current_page"] - 1; ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            </li>
+                            
+                            
+                            <?php for($i=0;$i<$data['pages'];$i++): ?>
+                                <li class="page-item <?php if($data["current_page"] == $i + 1): ?> active<?php endif; ?>"><a class="page-link" href="<?php echo ROUTE_URL ?>/users/page/<?php echo $i + 1; ?>"><?php echo $i + 1; ?></a></li>
+                            <?php endfor; ?>
+                            
+                            
+                                <li class="page-item <?php if($data["current_page"] >= $data["pages"]): ?>disabled<?php endif; ?>">
+                                <a class="page-link" href="<?php echo $data["current_page"] + 1; ?>" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                                </li>
+                            
+                        </ul>
+                    </nav>
                 </div>
             </article>
         </div>

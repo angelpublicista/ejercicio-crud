@@ -11,56 +11,55 @@
             <article class="gn-content p-4">
                 <div class="container-fluid">
                     <h1 class="mb-4 gn-content-title"><?php echo $data['title']; ?></h1>
+                    
                     <a href="<?php echo ROUTE_URL; ?>/users" class="link mb-3 d-inline-block">← Regresar</a>
                     <div class="card card-body bg-light">
-                    <form action="<?php echo ROUTE_URL; ?>/users/add" method="POST">
+                    <form action="<?php echo ROUTE_URL; ?>/users/update/<?php echo $data['id_user']; ?>" method="POST">
                         <div class="row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="">Nombre</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="<?php echo $data['user']->name; ?>">
                             </div>
 
                             <div class="form-group col-12 col-md-6">
                                 <label for="">Apellido</label>
-                                <input type="text" class="form-control" name="last_name">
+                                <input type="text" class="form-control" name="last_name" value="<?php echo $data['user']->last_name; ?>">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="">Email</label>
-                                <input type="text" class="form-control" name="email">
+                                <input type="text" class="form-control" name="email" value="<?php echo $data['user']->email; ?>">
                             </div>
                             <div class="form-group col-12 col-md-6">
                                 <label for="">Teléfono</label>
-                                <input type="number" class="form-control" name="phone">
+                                <input type="number" class="form-control" name="phone" value="<?php echo $data['user']->phone; ?>"> 
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="">Email</label>
                             <select name="role" id="role" class="form-control">
-                                <option selected disabled>Selecciona un rol</option>
-                                <option value="1">Administrador</option>
-                                <option value="2">Colaborador</option>
-                                <option value="3">Cliente</option>
+                                <option>Selecciona un rol</option>
+                                <option <?php if($data['user']->id_role == 1): ?>selected<?php endif; ?> value="1">Administrador</option>
+                                <option <?php if($data['user']->id_role == 2): ?>selected<?php endif; ?> value="2">Colaborador</option>
+                                <option <?php if($data['user']->id_role == 3): ?>selected<?php endif; ?> value="3">Cliente</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="">Contraseña</label>
-                            <input type="password" class="form-control" name="password">
+                            <label for="">Nueva contraseña</label>
+                            <input type="password" class="form-control" name="password" value="<?php echo $data['user']->password; ?>">
                         </div>
 
-                        <input type="submit" value="Agregar usuario" class="btn btn-primary">
+                        <input type="submit" value="Actualizar usuario" class="btn btn-primary">
                     </form>
-                </div>
+                    </div>
                 </div>
             </article>
         </div>
     </div>
 </main>
-
-
 
 <?php require ROUTE_APP . "/view/inc/footer.php"; ?>
