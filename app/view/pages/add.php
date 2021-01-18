@@ -44,6 +44,7 @@
                                 <option value="1">Administrador</option>
                                 <option value="2">Colaborador</option>
                                 <option value="3">Cliente</option>
+                                <option value="4">Alilado</option>
                             </select>
                         </div>
 

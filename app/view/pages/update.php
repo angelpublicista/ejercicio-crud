@@ -45,6 +45,7 @@
                                 <option <?php if($data['user']->id_role == 1): ?>selected<?php endif; ?> value="1">Administrador</option>
                                 <option <?php if($data['user']->id_role == 2): ?>selected<?php endif; ?> value="2">Colaborador</option>
                                 <option <?php if($data['user']->id_role == 3): ?>selected<?php endif; ?> value="3">Cliente</option>
+                                <option <?php if($data['user']->id_role == 4): ?>selected<?php endif; ?> value="4">Alilado</option>
                             </select>
                         </div>
 

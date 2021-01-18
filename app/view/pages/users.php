@@ -1,6 +1,35 @@
 <?php require ROUTE_APP . "/view/inc/header.php"; ?>
 
 <main class="gn-main">
+    <!-- Modal import users -->
+    <div class="modal fade" id="import-users" tabindex="-1" aria-labelledby="import-users--abel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Importar Usuarios</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Selecciona un archivo de excel (.xls) para importar usuarios</p>
+            <form action="">
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="file_users"
+                    id="file_users" accept=".xls,.xlsx" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Seleccionar archivo</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
     <div class="row">
         <div class="col-12 col-md-3">
             <!-- Sidebar menú -->
@@ -15,8 +44,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <p>Mostrando <b><?php echo $data['show_results'] ?></b> de <?php echo $data['rows']; ?> resultados</p>
                         <div class="buttons-group  mb-3">
-                            <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mr-2">+ Agregar usuario</a>
-                            <a href="#" class="btn btn-success"><i class="fas fa-file-csv mr-1"></i> Importar usuarios</a>
+                            <a href="<?php echo ROUTE_URL ?>/users/add" class="btn btn-primary mr-2"><i class="fas fa-plus-circle mr-1"></i> Agregar usuario</a>
+                            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#import-users"><i class="fas fa-file-csv mr-1"></i> Importar usuarios</a>
                         </div>
                     </div>
                     <table class="table table-bordered">
@@ -37,7 +66,6 @@
                                     <td>
                                         <a href="<?php echo ROUTE_URL ?>/users/update/<?php echo $user->id; ?>" class="btn btn-primary"><i class="far fa-edit"></i></a>
                                         <a href="<?php echo ROUTE_URL ?>/users/sendMail/<?php echo $user->id; ?>" class="btn btn-success"><i class="far fa-envelope"></i></a>
-                                        <a href="<?php echo ROUTE_URL ?>/users/automate/<?php echo $user->id; ?>" class="btn btn-warning"><i class="fas fa-magic"></i></a>
                                         <a href="<?php echo ROUTE_URL ?>/users/delete/<?php echo $user->id; ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
