@@ -1,0 +1,13 @@
+{
+    "name": "host/geniorama",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Angel Burgos Desktop",
+            "email": "angelpublicista.1@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.16"
+    }
+}

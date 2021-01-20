@@ -13,7 +13,7 @@
         </div>
         <div class="modal-body">
             <p>Selecciona un archivo de excel (.xls) para importar usuarios</p>
-            <form action="">
+            <form enctype="multipart/form-data" action="<?php echo ROUTE_URL; ?>/users/import" method="POST">
             <div class="input-group mb-3">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" name="file_users"

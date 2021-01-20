@@ -154,4 +154,20 @@ class Users extends Controller{
         $this->view("pages/sendMail", $data);
     }
 
+    public function import(){
+       if($_SERVER['REQUEST_METHOD'] == "POST" && $_FILES['file_users']['name'] != ''){
+           $data = [
+               'file' => $_FILES['file_users']
+           ];
+
+           if($this->userModel->importUsers($data)){
+                redirectTo('/users');
+           } else {
+               die("Algo salió mal");
+           }
+       } else {
+           echo "El archivo está vacio";
+       }
+    }
+
 }
