@@ -1,0 +1,61 @@
+body {
+  font-size: 11pt;
+  overflow-x: hidden;
+}
+
+p, h1, h2, h3, h4, h5, h6, td, th, .form-control, .btn, label, a {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.plan-pagos {
+  text-transform: capitalize;
+}
+
+.gn-main {
+  height: 93vh;
+}
+.gn-main .gn-sidebar-menu {
+  height: 93vh;
+}
+.gn-main .gn-sidebar-menu .nav-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gn-main .gn-content {
+  height: 93vh;
+}
+.gn-main .gn-content-title {
+  color: #007BFF;
+  border-left: 3px solid #007BFF;
+  padding-left: 0.5em;
+  font-size: 1.5em;
+}
+
+.gn-form-login {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  font-size: 0.8em;
+  color: #757575;
+}
+
+.img-brand {
+  width: 100%;
+  max-width: 100px;
+}
+
+.sort-buttons {
+  opacity: 0.5;
+}
+.sort-buttons:hover {
+  opacity: 1;
+}
+
+.gn-main-error .gn-content i {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
