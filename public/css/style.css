@@ -53,4 +53,9 @@ label {
   opacity: 1;
 }
 
+.gn-main-error .gn-content i {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

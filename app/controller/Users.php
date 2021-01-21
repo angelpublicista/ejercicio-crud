@@ -58,8 +58,11 @@ class Users extends Controller{
 
             if($this->userModel->addUser($data)){
                 redirectTo('/users/page/1');
-            }else {
-                die('Algo salió mal');
+            } else {
+                $data = [
+                    "message" => "No se pudo insertar el usuario en la base de datos"
+                ];
+                $this->view('/pages/error', $data);
             }   
         } else {
            $data = [
@@ -163,10 +166,13 @@ class Users extends Controller{
            if($this->userModel->importUsers($data)){
                 redirectTo('/users');
            } else {
-               die("Algo salió mal");
+                $data = [
+                    "message" => "No se pudo importar el archivo"
+                ];
+                $this->view('/pages/error', $data);
            }
        } else {
-           echo "El archivo está vacio";
+            redirectTo('/users');
        }
     }
 

@@ -48,21 +48,32 @@ class User{
     }
 
     public function addUser($data){
-        $query = 'INSERT INTO gn_user(email, name, last_name, phone, id_role, password) VALUES (:email, :name, :last_name, :phone, :id_role, :password)';
 
-        $this->db->query($query);
+        $query_user = 'SELECT email FROM gn_user WHERE email = :email';
 
-        $pass_hash = password_hash($data["password"], PASSWORD_BCRYPT);
+        $this->db->query($query_user);
 
         $this->db->bind(":email", $data["email"]);
-        $this->db->bind(":name", $data["name"]);
-        $this->db->bind(":last_name", $data["last_name"]);
-        $this->db->bind(":phone", $data["phone"]);
-        $this->db->bind(":id_role", $data["id_role"]);
-        $this->db->bind(":password", $pass_hash);
 
-        if($this->db->execute()){
-            return true;
+        if(!$this->db->register()){
+            $query = 'INSERT INTO gn_user(email, name, last_name, phone, id_role, password) VALUES (:email, :name, :last_name, :phone, :id_role, :password)';
+
+            $this->db->query($query);
+
+            $pass_hash = password_hash($data["password"], PASSWORD_BCRYPT);
+
+            $this->db->bind(":email", $data["email"]);
+            $this->db->bind(":name", $data["name"]);
+            $this->db->bind(":last_name", $data["last_name"]);
+            $this->db->bind(":phone", $data["phone"]);
+            $this->db->bind(":id_role", $data["id_role"]);
+            $this->db->bind(":password", $pass_hash);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
