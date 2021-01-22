@@ -10,7 +10,7 @@ class Pages extends Controller{
             "title" => "Inicio"
         ];
         // Cargamos métodos del modelo
-        $this->view("pages/home", $data);
+        $this->view("template", $data);
     }
 
 }

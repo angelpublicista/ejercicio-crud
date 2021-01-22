@@ -10,13 +10,8 @@ class User{
     public function allUsers(){
         $query = "SELECT * FROM gn_user INNER JOIN gn_roles ON gn_user.id_role = gn_roles.id_role";
         $this->db->query($query);
-        
-        $res = [
-            'user_data' => $this->db->registers(),
-            'data_count' => $this->db->rowCount()
-        ];
 
-        return $res;
+        return $this->db->registers();
     }
 
     public function usersPagination($params){
@@ -80,18 +75,32 @@ class User{
     }
 
     public function updateUser($data){
-        $query = 'UPDATE gn_user SET email=:email, name=:name, last_name=:last_name, phone=:phone, id_role=:id_role, password=:password WHERE id=:id';
+        if(strlen($data['password'] > 1)){
+            $query = 'UPDATE gn_user SET email=:email, name=:name, last_name=:last_name, phone=:phone, id_role=:id_role, password=:password WHERE id=:id';
+        } else {
+            $query = 'UPDATE gn_user SET email=:email, name=:name, last_name=:last_name, phone=:phone, id_role=:id_role WHERE id=:id';
+        }
+        
 
         $this->db->query($query);
 
-        $pass_hash = password_hash($data["password"], PASSWORD_BCRYPT);
+        // var_dump("Hash: " . $data['hash'] . "<br>");
+
+        // var_dump("Encriptada: " . password_hash($data['password'], PASSWORD_BCRYPT));
+
+        // var_dump(password_verify($data["password"], $data['hash']));
+
+        if(strlen($data['password'] > 1)){
+            $pass_hash = password_hash($data["password"], PASSWORD_BCRYPT);
+            $this->db->bind(":password", $pass_hash);
+        }
 
         $this->db->bind(":email", $data["email"]);
         $this->db->bind(":name", $data["name"]);
         $this->db->bind(":last_name", $data["last_name"]);
         $this->db->bind(":phone", $data["phone"]);
         $this->db->bind(":id_role", $data["id_role"]);
-        $this->db->bind(":password", $pass_hash);
+        
         $this->db->bind(":id", $data["id_user"]);
 
         if($this->db->execute()){

@@ -7,8 +7,15 @@ class Users extends Controller{
     }
 
     public function index(){
-        // Redirección a paginación
-        redirectTo('/users/page/1');
+        $users = $this->userModel->allUsers();
+
+        $data = [
+            "users" => $users,
+            "title" => "Todos los usuarios",
+        ];
+
+        // Cargamos métodos del modelo
+        $this->view("pages/users", $data);
     }
 
     public function page($num){
@@ -57,13 +64,8 @@ class Users extends Controller{
             ];
 
             if($this->userModel->addUser($data)){
-                redirectTo('/users/page/1');
-            } else {
-                $data = [
-                    "message" => "No se pudo insertar el usuario en la base de datos"
-                ];
-                $this->view('/pages/error', $data);
-            }   
+                redirectTo('/users');
+            }
         } else {
            $data = [
             'email' => '',
@@ -82,6 +84,7 @@ class Users extends Controller{
 
     public function update($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $user = $this->userModel->userById($id);
             $data = [
                 'id_user' => $id,
                 'email' => $_POST['email'],
@@ -89,12 +92,13 @@ class Users extends Controller{
                 'last_name' => trim($_POST['last_name']),
                 'phone' => trim($_POST['phone']),
                 'password' => $_POST['password'],
+                'hash' => $user->password,
                 'id_role' => intval($_POST['role']),
                 'title' => 'Actualizar usuario'
             ];
 
             if($this->userModel->updateUser($data)){
-                redirectTo('/users/page/1');
+                redirectTo('/users');
             }else {
                 die('Algo salió mal');
             }

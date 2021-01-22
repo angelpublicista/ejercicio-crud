@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/style.sass","../sass/_error.sass"],"names":[],"mappings":"AAAA;EACI;EACA;;;AACJ;EACI;;;AACJ;EACI;;;AACJ;EACI;;AAEA;EACI;;AACA;EACI;;AACR;EACI;;AACA;EACI;EACA;EACA;EACA;;;AAEZ;EACI;EACA;EACA;;;AACJ;EACI;EACA;;;AACJ;EACI;EACA;;;AACJ;EACI;;AACA;EACI;;;ACjCA;EACI;EACA","file":"style.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/style.sass"],"names":[],"mappings":"AACI;EACI","file":"style.css"}
